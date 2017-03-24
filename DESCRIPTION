@@ -1,0 +1,13 @@
+Package: BNPMediation
+Type: Package
+Title: Bayesian Nonparametric Method for Mediation
+Version: 0.1.0
+Author: Chanmin Kim, Michael Daniels
+Maintainer: Aarti Singh <mdstat2016@gmail.com>
+Description: Provides the Bayesian nonparametric inference for the causal effects of mediation. The function bnpmediation()
+      gives the posterior means and credible intervals of the effects of mediation on the data.
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Imports: mnormt
+RoxygenNote: 6.0.1
