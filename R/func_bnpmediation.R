@@ -17,18 +17,25 @@
 #' @return Y11 Posterior samples of Y11
 #' @return Y00 Posterior samples of Y00
 #' @return Y10 Posterior samples of Y10
+#'
 #' @importFrom mnormt rmnorm dmnorm
 #' @importFrom stats dnorm rnorm
 #' @importFrom utils setTxtProgressBar txtProgressBar
+#' @import DPpackage
+
 #' @export
+bnpm<-function(dataTreatment, dataControl, prior, mcmc, state, status=TRUE,na.action, q =2, NN=10, n1 = 10, n0 = 10, extra.thin=0)
+{
 
+  obj1 = DPdensity(y=dataTreatment,prior=prior,mcmc=mcmc,state=state,status=TRUE, na.action=na.omit)
+  obj0 = DPdensity(y=dataControl,prior=prior,mcmc=mcmc,state=state,status=TRUE, na.action=na.omit)
 
-bnpmediation<-function(obj1, obj0, q, NN=10, n1 = 10, n0 = 10, extra.thin=0){
+  cat("***** Running bnpmediation\n")
 
-  # library(mnormt)
   obj1.dim <- dim(obj1$save.state$randsave)[2]-(q*(q+1)/2+2*q-1)
   obj0.dim <- dim(obj0$save.state$randsave)[2]-(q*(q+1)/2+2*q-1)
-  Len.MCMC <- 1:dim(obj0$save.state$randsave)[1]
+
+    Len.MCMC <- 1:dim(obj0$save.state$randsave)[1]
   if(extra.thin!=0){
     Len.MCMC <- Len.MCMC[seq(1, length(Len.MCMC), extra.thin)]
   }

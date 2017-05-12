@@ -5,10 +5,11 @@ Version: 0.1.0
 Author: Chanmin Kim, Michael Daniels
 Maintainer: Aarti Singh <mdstat2016@gmail.com>
 Description: Provides the Bayesian nonparametric inference for the causal effects of mediation. The function bnpmediation()
-      gives the posterior means and credible intervals of the effects of mediation on the data. Further details can be found on 
-      <http://onlinelibrary.wiley.com/doi/10.1111/biom.12575/abstract>
+      gives the posterior means and credible intervals of the effects of mediation on the data. Further details can be found on <http://onlinelibrary.wiley.com/doi/10.1111/biom.12575/abstract>.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
-Imports: mnormt
+Depends: R (>= 2.10)
 RoxygenNote: 6.0.1
+Imports: DPpackage,
+    mnormt

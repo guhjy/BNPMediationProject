@@ -23,8 +23,48 @@ You can install BNPMediation from github with:
 
 ```{r gh-installation, eval = FALSE}
 # install.packages("devtools")
-devtools::install_github("mjdaniels/BNPMediationProject")
+#devtools::install_github("mjdaniels/BNPMediationProject") # Check: Does this line in the R code run all the time readme.md is built. If yes, then does that mean the pkg BNPMediation is installed again and again?
 ```
+
+## Example
+```{r}
+data(airquality)
+attach(airquality)
+ozone <- Ozone**(1/3)
+radiation <- Solar.R
+w1 =cbind(radiation,ozone)
+
+nburn <- 5000
+nsave <- 10000
+nskip <- 10
+ndisplay <- 1000
+mcmc <- list(nburn=nburn,nsave=nsave,nskip=nskip,ndisplay=ndisplay)
+
+s2 <- matrix(c(10000,0,0,1),ncol=2)
+m2 <- c(180,3)
+psiinv2 <- solve(matrix(c(10000,0,0,1),ncol=2))
+prior <- list(a0=1,b0=1/5,nu1=4,nu2=4,s2=s2,m2=m2,psiinv2=psiinv2,tau1=0.01,tau2=0.01)
+
+
+library(DPpackage)
+fit111 = DPdensity(y=w1,prior=prior,mcmc=mcmc,state=state,status=TRUE, na.action=na.omit)
+fit000 = DPdensity(y=w0,prior=prior,mcmc=mcmc,state=state,status=TRUE, na.action=na.omit)
+#'
+
+
+library(BNPMediation)
+BNPMediation::bnpm(obj1 = fit111, obj0 = fit000)
+ #I am sure this line is run everytime .MD is built.. that means the above line for installation must be run again and again ! That doesnt make much sense....
+# Check if BNPMediation:: is needed... As in if the function `bnpmediation()` is run by the localy present BNPMediation or by installed one from GitHub......
+#Fit1 of global environment didnt work
+#fit1 in a separate .rda didnt work ???? REALLY?
+
+
+# FINAL CONCLUSION: fit1 is to be given by fit1.rda And only that will work
+```
+
+
+
 
 
 
