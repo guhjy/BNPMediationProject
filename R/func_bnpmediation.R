@@ -1,10 +1,15 @@
 #' Posterior Means and 95\% C.I.s of the NIE, NDE and TE
 #'
 #' Obtain posterior means and credible intervals of the effects.
-#' @param obj1 The fitted model of the observed data under Z=1 from DPdensity
-#' @param obj0 The fitted model of the observed data under Z=0 from Dpdensity
+#' @param dataTreatment The fitted model of the observed data under Z=1 from DPdensity
+#' @param dataControl The fitted model of the observed data under Z=0 from Dpdensity
+#' @param prior a list giving the prior information
+#' @param mcmc a list giving the MCMC parameters
+#' @param state a list giving the current value of the parameters
+#' @param status a logical variable indicating whether this run is new (TRUE) or the continuation of a previous analysis (FALSE)
+#' @param na.action a function that indicates what should happen when the data contain NAs
 #' @param q A dimension of the observed data, i.e., number of covariates plus 2
-#' @param NN Number of samples drawn for each iteration from the joint distribution of the mediator and the covariates. Default is 10.
+#' @param NN Number of samples drawn for each iteration from the joint distribution of the mediator and the covariates. Default is 10
 #' @param n1 Number of observations under Z=1
 #' @param n0 Number of observations under Z=0
 #' @param extra.thin Giving the extra thinning interval
@@ -19,9 +24,10 @@
 #' @return Y10 Posterior samples of Y10
 #'
 #' @importFrom mnormt rmnorm dmnorm
-#' @importFrom stats dnorm rnorm
+#' @importFrom stats dnorm rnorm na.omit
 #' @importFrom utils setTxtProgressBar txtProgressBar
 #' @import DPpackage
+
 
 #' @export
 bnpm<-function(dataTreatment, dataControl, prior, mcmc, state, status=TRUE,na.action, q =2, NN=10, n1 = 10, n0 = 10, extra.thin=0)
