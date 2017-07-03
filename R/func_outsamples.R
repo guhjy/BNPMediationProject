@@ -1,8 +1,8 @@
 #' Posterior Samples of the Outcomes
 #'
 #' Obtain posterior samples of the outcomes, E[Y1] and E[Y0].
-#' @param obj1 The fitted model of the observed data under Z=1 from DPdensity
-#' @param obj0 The fitted model of the observed data under Z=0 from Dpdensity
+#' @param obj1 The observed data under Z=1
+#' @param obj0 The observed data under Z=0
 #' @param q A dimension of the observed data, i.e., number of covariates plus 2
 #' @return Y1 Posterior samples of E[Y1]
 #' @return Y0 Posterior samples of E[Y0]

@@ -6,12 +6,12 @@
 \usage{
 bnpconmediation(dataTreatment, dataControl, prior, mcmc, state, status = TRUE,
   na.action, q = 2, NN = 10, n1 = 10, n0 = 10, extra.thin = 0,
-  cond.values = c(45, 35), col.values = c(1, 2))
+  cond.values = c(45, 35), col.values = c(1, 2), seed = 12345)
 }
 \arguments{
-\item{dataTreatment}{The fitted model of the observed data under Z=1 from DPdensity}
+\item{dataTreatment}{The observed data under Z=1}
 
-\item{dataControl}{The fitted model of the observed data under Z=0 from Dpdensity}
+\item{dataControl}{The observed data under Z=0}
 
 \item{prior}{a list giving the prior information}
 
@@ -36,6 +36,8 @@ bnpconmediation(dataTreatment, dataControl, prior, mcmc, state, status = TRUE,
 \item{cond.values}{conditional values of the covariates}
 
 \item{col.values}{columns orders of the conditional covariates among all covariates}
+
+\item{seed}{Value to be given to the seed}
 }
 \value{
 ENIE Posterior mean of the NIE

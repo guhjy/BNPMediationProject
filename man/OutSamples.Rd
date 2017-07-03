@@ -7,9 +7,9 @@
 OutSamples(obj1, obj0, q)
 }
 \arguments{
-\item{obj1}{The fitted model of the observed data under Z=1 from DPdensity}
+\item{obj1}{The observed data under Z=1}
 
-\item{obj0}{The fitted model of the observed data under Z=0 from Dpdensity}
+\item{obj0}{The observed data under Z=0}
 
 \item{q}{A dimension of the observed data, i.e., number of covariates plus 2}
 }

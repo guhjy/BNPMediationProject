@@ -1,8 +1,8 @@
 #' Posterior Means and 95\% C.I.s of the conditional NIE, NDE and TE
 #'
 #' Obtain posterior means and credible intervals of the effects.
-#' @param dataTreatment The fitted model of the observed data under Z=1 from DPdensity
-#' @param dataControl The fitted model of the observed data under Z=0 from Dpdensity
+#' @param dataTreatment The observed data under Z=1
+#' @param dataControl The observed data under Z=0
 #' @param prior a list giving the prior information
 #' @param mcmc a list giving the MCMC parameters
 #' @param state a list giving the current value of the parameters
@@ -15,6 +15,7 @@
 #' @param extra.thin Giving the extra thinning interval
 #' @param cond.values conditional values of the covariates
 #' @param col.values columns orders of the conditional covariates among all covariates
+#' @param seed Value to be given to the seed
 #' @return ENIE Posterior mean of the NIE
 #' @return ENDE Posterior mean of the NDE
 #' @return ETE Posterior mean of the TE
@@ -30,7 +31,7 @@
 #' @export
 
 
-bnpconmediation<-function(dataTreatment, dataControl,prior, mcmc, state, status=TRUE,na.action, q=2, NN=10, n1=10, n0=10, extra.thin=0, cond.values=c(45,35), col.values=c(1,2)){
+bnpconmediation<-function(dataTreatment, dataControl,prior, mcmc, state, status=TRUE,na.action, q=2, NN=10, n1=10, n0=10, extra.thin=0, cond.values=c(45,35), col.values=c(1,2), seed = 12345){
 
   obj1 = DPdensity(y=dataTreatment,prior=prior,mcmc=mcmc,state=state,status=TRUE, na.action=na.omit)
   obj0 = DPdensity(y=dataControl,prior=prior,mcmc=mcmc,state=state,status=TRUE, na.action=na.omit)
@@ -54,7 +55,7 @@ bnpconmediation<-function(dataTreatment, dataControl,prior, mcmc, state, status=
   Y10<-NULL
   Y11<-NULL
   Y00<-NULL
-
+ set.seed(seed)
   joint0 <- matrix(nrow=n0*NN,ncol=q-1)
   joint1 <- matrix(nrow=n1*NN,ncol=q-1)
 

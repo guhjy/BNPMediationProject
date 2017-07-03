@@ -1,7 +1,7 @@
 #' Posterior plots of the effects
 
 #' To obtain the posterior plots of the effects
-#' @param obj The fitted model use: PlotEffects(model)
+#' @param obj The fitted model. For example, bnpmediation or bnpconmediation functions
 #' @return plots Draws the plot for the models
 #' @importFrom graphics legend lines plot
 #' @importFrom stats density
