@@ -4,3 +4,4 @@
 ^README-.*\.png$
 ^packrat/
 ^\.Rprofile$
+^\.travis\.yml$
