@@ -14,7 +14,7 @@ knitr::opts_chunk$set(
 
 # BNPMediation
 
-The goal of BNPMediation is to provide two functions `bnpm` and `bnpconmediation`. The function `bnpm` provides the posterior means and credible intervals of the effects of mediation, whereas `bnpconmediation` provides the posterior means and credible intervals of the conditional effects. Another function `plot_effects` is provide that obtains the posterior plots of the effects. Bayesian Nonparametric (BNP) models are used for the observed data to identify and estimate the causal effects. 
+The goal of BNPMediation is to provide two functions `bnpmediation` and `bnpconmediation`. The function `bnpmediation` provides the posterior means and credible intervals of the effects of mediation, whereas `bnpconmediation` provides the posterior means and credible intervals of the conditional effects. Another function `plot_effects` is provide that obtains the posterior plots of the effects. Bayesian Nonparametric (BNP) models are used for the observed data to identify and estimate the causal effects. The published journal can be found at http://dx.doi.org/10.1111/biom.12575. 
  
 
 ## Installation
@@ -48,7 +48,7 @@ dataControl = c(9.060491, 7.566083, 8.081978, 6.450560, 7.252086, 7.545289, 9.01
  prior <- list(a0=1,b0=1/5,nu1=4,nu2=4,s2=s2,m2=m2,psiinv2=psiinv2,tau1=0.01,tau2=0.01)
 
 library(BNPMediation)
-bnpm(dataTreatment, dataControl, prior, mcmc, state, status = TRUE, na.action, q = 2, NN = 10, n1 = 10, n0 = 10, extra.thin = 0, seed= 12345)
+bnpmediation(dataTreatment, dataControl, prior, mcmc, state, status = TRUE, na.action, q = 2, NN = 10, n1 = 10, n0 = 10, extra.thin = 0, seed= 12345)
 
 
 

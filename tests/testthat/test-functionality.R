@@ -6,7 +6,7 @@ test_that("test are here", {
 
 
 test_that("test that output is of correct type",
-        { expect_type(bnpm(data_treatment, data_control, prior = prior, mcmc = mcmc, state = state), "list")
+        { expect_type(bnpmediation(data_treatment, data_control, prior = prior, mcmc = mcmc, state = state), "list")
 })
 
 

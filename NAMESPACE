@@ -2,7 +2,7 @@
 
 export(OutSamples)
 export(bnpconmediation)
-export(bnpm)
+export(bnpmediation)
 export(plot_effects)
 import(DPpackage)
 import(condMVNorm)

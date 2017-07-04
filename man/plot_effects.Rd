@@ -8,7 +8,7 @@ To obtain the posterior plots of the effects}
 plot_effects(obj)
 }
 \arguments{
-\item{obj}{The fitted model. For example, bnpmediation or bnpconmediation functions}
+\item{obj}{The fitted model (For example from the output from bnpmediation or bnpconmediation functions)}
 }
 \value{
 plots Draws the plot for the models

@@ -40,11 +40,11 @@ bnpconmediation(dataTreatment, dataControl, prior, mcmc, state, status = TRUE,
 \item{seed}{Value to be given to the seed}
 }
 \value{
-ENIE Posterior mean of the NIE
+ENIE Posterior mean of the Natural Indirect Effect (NIE)
 
-ENDE Posterior mean of the NDE
+ENDE Posterior mean of the Natural Direct Effect (NDE)
 
-ETE Posterior mean of the TE
+ETE Posterior mean of the Total Effect (TE)
 
 IE.c.i 95\% C.I. of the NIE
 

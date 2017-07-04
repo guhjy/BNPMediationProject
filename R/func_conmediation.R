@@ -16,16 +16,16 @@
 #' @param cond.values conditional values of the covariates
 #' @param col.values columns orders of the conditional covariates among all covariates
 #' @param seed Value to be given to the seed
-#' @return ENIE Posterior mean of the NIE
-#' @return ENDE Posterior mean of the NDE
-#' @return ETE Posterior mean of the TE
+#' @return ENIE Posterior mean of the Natural Indirect Effect (NIE)
+#' @return ENDE Posterior mean of the Natural Direct Effect (NDE)
+#' @return ETE Posterior mean of the Total Effect (TE)
 #' @return IE.c.i 95\% C.I. of the NIE
 #' @return DE.c.i 95\% C.I. of the NDE
 #' @return TE.c.i 95\% C.I. of the TE
 #' @return Y11 Posterior samples of Y11
 #' @return Y00 Posterior samples of Y00
 #' @return Y10 Posterior samples of Y10
-#'
+
 #' @import condMVNorm
 #'
 #' @export
